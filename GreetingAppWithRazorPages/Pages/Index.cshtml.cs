@@ -9,23 +9,31 @@ public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
 
-    public IndexModel(ILogger<IndexModel> logger)
+    private IGreet _greet;
+
+
+    public IndexModel(ILogger<IndexModel> logger, IGreet greet)
     {
         _logger = logger;
+        _greet = greet;
     }
 
     // Binding person property
     [BindProperty]
     public Person person {get; set;}
+
+    // Language array
+    public string[] languages = new[] {"English", "Isixhosa", "Sepedi"};
+
+    // To hold a greeted name
     public string greeting {get; set;}
     
+    // Count property
+    public int count {get; set;}
     
-    //public Greet greet {get; set;}
-    IGreet greet = new Greet();
-
     public void OnGet()
     {
-            
+        count = _greet.Counter();
     }
 
     public IActionResult OnPost()
@@ -33,7 +41,12 @@ public class IndexModel : PageModel
 
         if(person.FirstName != null)
         {
-            greeting = greet.GreetUser(person.FirstName);
+            //Console.WriteLine(person.Language);
+            // Greeting msg
+            greeting = $" {_greet.GetLanguage(person.Language)} { _greet.GreetUser(person.FirstName) }";
+
+            // Counter
+            count = _greet.Counter();
         }
 
         return Page();

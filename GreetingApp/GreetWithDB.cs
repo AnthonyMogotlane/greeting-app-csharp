@@ -15,7 +15,8 @@ public class GreetWithDB : IGreet
         var data = connection.Query<Table>(@"SELECT * FROM greeted");
         var temp = new List<string>();
 
-        string firstName = greetCommand.Split(" ")[1];
+        //string firstName = greetCommand.Split(" ")[1];
+        string firstName = greetCommand;
         firstName = firstName.Substring(0, 1).ToUpper() + firstName.Substring(1).ToLower();
 
         foreach (var name in data)
@@ -49,17 +50,30 @@ public class GreetWithDB : IGreet
             );
         }
 
-        Dictionary<string, string> langPhrase = new Dictionary<string, string>()
-        {
-            {"english", "Hello"},
-            {"sepedi", "Dumela"},
-            {"isixhosa", "Molo"},
-            {"zulu", "Siyaubona"}
+        // Dictionary<string, string> langPhrase = new Dictionary<string, string>()
+        // {
+        //     {"english", "Hello"},
+        //     {"sepedi", "Dumela"},
+        //     {"isixhosa", "Molo"},
+        //     {"zulu", "Siyaubona"}
 
+        // };
+
+        //string greetPhrase = greetCommand.Split(" ").Length == 3 ? langPhrase[greetCommand.Split("  ")[2]] : "Hello";
+        //return $"{greetPhrase} {firstName}";
+        return firstName;
+    }
+
+    public string GetLanguage(string lang)
+    {
+        Dictionary<string, string> greetPhrase = new Dictionary<string, string>()
+        {
+            {"English", "Hello"},
+            {"Sepedi", "Dumela"},
+            {"Isixhosa", "Molo"},
         };
 
-        string greetPhrase = greetCommand.Split(" ").Length == 3 ? langPhrase[greetCommand.Split("  ")[2]] : "Hello";
-        return $"{greetPhrase} {firstName}";
+        return $"{ greetPhrase[lang] }";
     }
     public Dictionary<string, int> Greeted()
     {

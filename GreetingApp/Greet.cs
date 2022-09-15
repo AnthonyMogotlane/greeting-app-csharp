@@ -55,6 +55,11 @@ public class Greet : IGreet
         return $"{GreetPhrase} {Name}";
     }
 
+    public string GetLanguage(string lang)
+    {
+        return "Hello";
+    }
+
     // List of greeted names
     public Dictionary<string, int> Greeted()
     {

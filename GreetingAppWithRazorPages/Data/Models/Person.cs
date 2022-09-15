@@ -7,4 +7,6 @@ public class Person
     [Required]
     public string? FirstName {get; set;}
     public int Number {get; set;}
+    [Required]
+    public string? Language {get; set;}
 }

@@ -13,6 +13,14 @@
                 <label asp-for="person.FirstName">Name:</label>
                 <input asp-for="person.FirstName" type="text" class="form-control" placeholder="Enter firstname you want to greet">
 
+                <div class="mt-4 text-center" >
+                    @foreach (var language in @Model.languages)
+                    {
+                        <label asp-for="person.Language">@language</label>
+                        <input type="radio" asp-for="person.Language" value="@language"> 
+                    }
+                </div>
+
                 <div class="mt-4 text-center">
                     <button class="btn btn-success">Greet</button>
                 </div>
@@ -21,6 +29,10 @@
 
         <div class="mt-4">
                 <h1 class="display-5 text-center border rounded">@Model.greeting</h1>
+        </div>
+
+        <div class="mt-4">
+                <p class="text-center">@Model.count Names have been greeted</p>
         </div>
     </div>
 </div>

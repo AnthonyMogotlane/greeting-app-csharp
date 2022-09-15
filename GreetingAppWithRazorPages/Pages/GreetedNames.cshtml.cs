@@ -13,13 +13,13 @@ public class GreetedNamesModel : PageModel
         _logger = logger;
     }
 
-    //IGreet greet = new GreetWithDB("Server=heffalump.db.elephantsql.com;Port=5432;Database=xbixatua;UserId=xbixatua;Password=MZpFuYnavsnJw65QqMIG9JtHM29yqMz6");
+    IGreet greetWithDB = new GreetWithDB("Server=heffalump.db.elephantsql.com;Port=5432;Database=xbixatua;UserId=xbixatua;Password=MZpFuYnavsnJw65QqMIG9JtHM29yqMz6");
     public Dictionary<string, int> theGreeted {get; set;}
     
 
     public void OnGet()
     {
-        //theGreeted = greet.Greeted();
+        theGreeted = greetWithDB.Greeted();
     }
 }
 

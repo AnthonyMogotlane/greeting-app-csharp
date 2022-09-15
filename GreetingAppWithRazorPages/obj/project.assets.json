@@ -142,19 +142,19 @@
     ]
   },
   "packageFolders": {
-    "/home/dev/.nuget/packages/": {}
+    "/home/codex/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingAppWithRazorPages/GreetingAppWithRazorPages.csproj",
+      "projectUniqueName": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingAppWithRazorPages/GreetingAppWithRazorPages.csproj",
       "projectName": "GreetingAppWithRazorPages",
-      "projectPath": "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingAppWithRazorPages/GreetingAppWithRazorPages.csproj",
-      "packagesPath": "/home/dev/.nuget/packages/",
-      "outputPath": "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingAppWithRazorPages/obj/",
+      "projectPath": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingAppWithRazorPages/GreetingAppWithRazorPages.csproj",
+      "packagesPath": "/home/codex/.nuget/packages/",
+      "outputPath": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingAppWithRazorPages/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/dev/.nuget/NuGet/NuGet.Config"
+        "/home/codex/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -166,8 +166,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/GreetingApp.csproj": {
-              "projectPath": "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/GreetingApp.csproj"
+            "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/GreetingApp.csproj": {
+              "projectPath": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/GreetingApp.csproj"
             }
           }
         }
