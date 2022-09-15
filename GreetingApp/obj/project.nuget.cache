@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Fy5FoH+C1D72DSsO5j2x6sTl8pkYJJRmMaW24pK9zZbrIZPToYYPrEBT5BdG8mVvATAYGhv8RNV0ji9QXZcIQg==",
+  "success": true,
+  "projectFilePath": "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/GreetingApp.csproj",
+  "expectedPackageFiles": [
+    "/home/dev/.nuget/packages/dapper/2.0.123/dapper.2.0.123.nupkg.sha512",
+    "/home/dev/.nuget/packages/npgsql/6.0.6/npgsql.6.0.6.nupkg.sha512",
+    "/home/dev/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
