@@ -3,7 +3,6 @@ using GreetingApp;
 var builder = WebApplication.CreateBuilder(args);
 
 
-
 // app.Environment.
 
 // app.Configuration
@@ -13,8 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 // builder.Services.AddSingleton<IGreet, Greet>();
-builder.Services.AddTransient<IGreet, GreetWithDB>( x => 
-    new GreetWithDB("Server=heffalump.db.elephantsql.com;Port=5432;Database=xbixatua;UserId=xbixatua;Password=MZpFuYnavsnJw65QqMIG9JtHM29yqMz6")
+builder.Services.AddSingleton<IGreet, GreetWithDB>( x => 
+    new GreetWithDB(builder.Configuration.GetConnectionString("cs"))
 );
 
 

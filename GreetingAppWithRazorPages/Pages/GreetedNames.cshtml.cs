@@ -1,4 +1,5 @@
 ﻿using GreetingApp;
+using GreetingAppWithRazorPages.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -7,19 +8,32 @@ namespace GreetingAppWithRazorPages.Pages;
 public class GreetedNamesModel : PageModel
 {
     private readonly ILogger<GreetedNamesModel> _logger;
+    private IGreet _greet;
 
-    public GreetedNamesModel(ILogger<GreetedNamesModel> logger)
+    public GreetedNamesModel(ILogger<GreetedNamesModel> logger, IGreet greet)
     {
         _logger = logger;
+        _greet = greet;
     }
 
-    IGreet greetWithDB = new GreetWithDB("Server=heffalump.db.elephantsql.com;Port=5432;Database=xbixatua;UserId=xbixatua;Password=MZpFuYnavsnJw65QqMIG9JtHM29yqMz6");
+    // Dictionary to hold data
     public Dictionary<string, int> theGreeted {get; set;}
     
+    
+    // Name to be deleted
+    [BindProperty] public Person person {get; set;}
+
+    public string msg {get; set;}
 
     public void OnGet()
     {
-        theGreeted = greetWithDB.Greeted();
+        theGreeted = _greet.Greeted();
+    }
+   
+    public void OnPost()
+    {
+        msg = _greet.ClearName(person.FirstName);
+        theGreeted = _greet.Greeted();
     }
 }
 

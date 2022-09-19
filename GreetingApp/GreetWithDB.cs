@@ -133,7 +133,8 @@ public class GreetWithDB : IGreet
         using NpgsqlConnection connection = new NpgsqlConnection(ConnectionString);
         connection.Open();
 
-        string firstName = clearCommand.Split(" ")[1];
+        //string firstName = clearCommand.Split(" ")[1];
+        string firstName = clearCommand;
         firstName = firstName.Substring(0, 1).ToUpper() + firstName.Substring(1).ToLower();
 
         connection.Execute(@"

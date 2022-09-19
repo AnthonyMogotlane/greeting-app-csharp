@@ -27,9 +27,14 @@ public class IndexModel : PageModel
 
     // To hold a greeted name
     public string greeting {get; set;}
+    // msg property
+    public string msg {get; set;}
     
     // Count property
     public int count {get; set;}
+    [BindProperty]
+    // Action property
+    public string action {get; set;}
     
     public void OnGet()
     {
@@ -38,17 +43,32 @@ public class IndexModel : PageModel
 
     public IActionResult OnPost()
     {
+            if(action == "submit")
+            {
 
-        if(person.FirstName != null)
-        {
-            //Console.WriteLine(person.Language);
-            // Greeting msg
-            greeting = $" {_greet.GetLanguage(person.Language)} { _greet.GreetUser(person.FirstName) }";
+                if(person.FirstName != null && person.Language != null)
+                {
+                    // Greeting msg
+                    greeting = $" { _greet.GetLanguage(person.Language) }! { _greet.GreetUser(person.FirstName) }";
+                    count = _greet.Counter();
+                    // Clear inputs field
+                    person.FirstName = string.Empty;
+                    person.Language = string.Empty;
+                    ModelState.Clear();
 
-            // Counter
+                    // Counter
+                }
+
+            }
+            else if(action == "clear")
+            {
+                _greet.Clear();
+                msg = "Data Cleared";
+                count = _greet.Counter();   
+            }
+
             count = _greet.Counter();
-        }
+            return Page();
 
-        return Page();
     }
 }
