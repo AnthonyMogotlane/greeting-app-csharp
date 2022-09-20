@@ -12,6 +12,7 @@
                 <tr>
                     <th scope="col">Names</th>
                     <th scope="col">No. of time greeted</th>
+                    <th></th>
                 </tr>
             </thead>
             @foreach (var item in @Model.theGreeted)
@@ -19,6 +20,12 @@
                 <tr>
                     <td>@item.Key</td>
                     <td>@item.Value</td>
+                    <td>
+                        <form method="post" asp-page-handler="delete">
+                            <button class="btn btn-danger">Delete</button>
+                            <input type="hidden" name="name" value=@item.Key>
+                        </form>
+                    </td>
                 </tr>
             }
 
@@ -27,6 +34,11 @@
                 <input type="text" class="form-control" asp-for="person.FirstName" placeholder="Enter a name you want to delete">
                 <button class="btn btn-danger m-4">Clear Name</button>
             </form>
+
+                <div>
+                    
+                    <p class="text-danger">@Model.alertMsg</p>
+                </div>
         </table>
     </div>
 </div>

@@ -24,6 +24,7 @@ public class GreetedNamesModel : PageModel
     [BindProperty] public Person person {get; set;}
 
     public string msg {get; set;}
+    public string alertMsg {get; set;}
 
     public void OnGet()
     {
@@ -34,6 +35,15 @@ public class GreetedNamesModel : PageModel
     {
         msg = _greet.ClearName(person.FirstName);
         theGreeted = _greet.Greeted();
+    }
+    public void OnPostDelete(string name)
+    {
+        _greet.ClearName(name);
+
+        theGreeted = _greet.Greeted();
+
+        //Alert msg
+        alertMsg = $"{name} has been deleted";
     }
 }
 
