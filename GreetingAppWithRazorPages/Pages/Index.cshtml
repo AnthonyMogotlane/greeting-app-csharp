@@ -5,50 +5,49 @@
 }
 
 <div class="row d-flex flex-column justify-content-center align-items-center">
-    <div class="col-md-6">
+    <div class="col-md-6 jumbotron">
         <h1 class="display-3 text-center">Greetings</h1>
         <div class="form-container">
             <form class="form-group" method="post">
                 @if (@Model.action == "submit")
                 {
                     <div asp-validation-summary="All" class="text-danger"></div>
+                    @* <span asp-validation-for="person.FirstName" class="text-danger"></span>
+                        <span asp-validation-for="person.Language" class="text-danger"></span> *@
                 }
                 <label asp-for="person.FirstName">Name:</label>
-                <input asp-for="person.FirstName" type="text" class="form-control"
+                <input asp-for="person.FirstName" type="text" class="form-control input-field"
                     placeholder="Enter firstname you want to greet">
+
+
 
                 <div class="mt-4 text-center">
                     @foreach (var language in @Model.languages)
                     {
                         <input type="radio" asp-for="person.Language" value="@language">
-                        <label class="mr-1" asp-for="person.Language">@language</label>
+                        <label class="mr-1 type-lang" asp-for="person.Language">@language</label>
                     }
                 </div>
 
                 <div class="mt-4 text-center">
-                    <button asp-action="submit" type="submit" class="btn btn-success">Greet</button>
-                    <button asp-action="clear" class="btn btn-danger">Clear</button>
+                    <button asp-action="submit" type="submit" class="btn btn-success btn-greet"
+                        onclick="popGreetMsg()">Greet</button>
+                    <button asp-action="clear" class="btn btn-danger btn-clear" onclick="popGreetMsg()">Clear</button>
                 </div>
             </form>
         </div>
 
-        @if(@Model.action == "submit")
-        {
-            <div class="mt-4">
-                <h1 class="display-5 text-center border rounded">@Model.greeting</h1>
-            </div>
-        }
-        else if(@Model.action == "clear")
-        {
-            <div class="mt-4 ">
-                <p class="display-5 text-center border rounded bg-danger">@Model.msg</p>
-            </div>
-        }
-            
+        <div class="mt-4 greet-msg">
+            <h1 class="display-5 text-center border rounded">@Model.greeting</h1>
+        </div>
 
-            <div class="mt-4">
-                <p class="text-center">@Model.count Names have been greeted</p>
-            </div>
+        <div class="mt-4 greet-msg">
+            <p class="display-5 text-center border rounded bg-danger">@Model.msg</p>
+        </div>
 
+        <div class="mt-4">
+            <p class="text-center">@Model.count Names have been greeted</p>
+        </div>
+        
     </div>
 </div>

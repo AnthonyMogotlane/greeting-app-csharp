@@ -45,18 +45,22 @@ public class IndexModel : PageModel
     {
             if(action == "submit")
             {
-
-                if(person.FirstName != null && person.Language != null)
+                Console.WriteLine(person.FirstName);
+                if(ModelState.IsValid)
                 {
-                    // Greeting msg
-                    greeting = $" { _greet.GetLanguage(person.Language) }! { _greet.GreetUser(person.FirstName) }";
-                    count = _greet.Counter();
-                    // Clear inputs field
-                    person.FirstName = string.Empty;
-                    person.Language = string.Empty;
-                    ModelState.Clear();
+                    // if(person.FirstName != null && person.Language != null)
+                    // {
+                        // Greeting msg
+                        greeting = $" { _greet.GetLanguage(person.Language) }! { _greet.GreetUser(person.FirstName) }";
+                        count = _greet.Counter();
+                        // Clear inputs field
+                        person.FirstName = string.Empty;
+                        person.Language = string.Empty;
+                        ModelState.Clear();
 
-                    // Counter
+                        // Counter
+                        //return Page();
+                    //}
                 }
 
             }
