@@ -31,3 +31,21 @@ body {
 .btn-clear {
   /* height: 40px; */
 }
+
+.holder-msg {
+  height: 55px;
+}
+
+.card {
+  background: #f5ebe0;
+}
+
+.counter {
+  border: solid black 1px;
+  border-radius: .25em;
+  padding: .2em;
+  font-size: 20px;
+  font-weight: 400;
+  background: #222;
+  color: #fff;
+}

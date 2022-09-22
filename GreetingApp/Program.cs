@@ -23,7 +23,7 @@ while(runApp == true)
     Console.Write("Enter a command > ");
 
     // User input command
-    string? enteredCommand = Console.ReadLine().ToLower();
+    string? enteredCommand = Console.ReadLine().Trim().ToLower();
     Console.ForegroundColor = ConsoleColor.Green;
 
     if(enteredCommand == "exit")
@@ -36,12 +36,13 @@ while(runApp == true)
         Console.WriteLine("Greeting app commands:");
         foreach (var command in Commands.Help())
         {
-            Console.WriteLine($"  {command}");
+            Console.WriteLine($" {command}");
         }
     }
     else if(enteredCommand.Split(" ")[0] == "greet" && enteredCommand.Split(" ").Length >= 2)
     {
-        Console.WriteLine("> " + greet.GreetUser(enteredCommand));
+        string temp = enteredCommand.Split(" ").Length == 3 ? enteredCommand.Split(" ")[2] : "English";
+        Console.WriteLine("> " + greet.GetLanguage(temp) + " " + greet.GreetUser(enteredCommand.Split(" ")[1]));
     }
     else if(enteredCommand == "greeted")
     {
@@ -50,7 +51,7 @@ while(runApp == true)
             Console.WriteLine(">");
             foreach (var nameCount in greet.Greeted())
             {
-                Console.WriteLine($"  {nameCount.Key}: {nameCount.Value}");  
+                Console.WriteLine($" {nameCount.Key}: {nameCount.Value}");  
             }
         }
         else

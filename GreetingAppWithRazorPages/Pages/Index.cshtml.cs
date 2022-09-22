@@ -23,7 +23,7 @@ public class IndexModel : PageModel
     public Person person {get; set;}
 
     // Language array
-    public string[] languages = new[] {"English", "Isixhosa", "Sepedi"};
+    public string[] languages = new[] {"English", "Isixhosa", "Sepedi", "Afrikaans"};
 
     // To hold a greeted name
     public string greeting {get; set;}
@@ -41,8 +41,8 @@ public class IndexModel : PageModel
         count = _greet.Counter();
     }
 
-    public IActionResult OnPost()
-    {
+    public void OnPost()
+    {   
             if(action == "submit")
             {
                 Console.WriteLine(person.FirstName);
@@ -51,7 +51,7 @@ public class IndexModel : PageModel
                     // if(person.FirstName != null && person.Language != null)
                     // {
                         // Greeting msg
-                        greeting = $" { _greet.GetLanguage(person.Language) }! { _greet.GreetUser(person.FirstName) }";
+                        greeting = $" { _greet.GetLanguage(person.Language) } { _greet.GreetUser(person.FirstName) }!";
                         count = _greet.Counter();
                         // Clear inputs field
                         person.FirstName = string.Empty;
@@ -72,7 +72,7 @@ public class IndexModel : PageModel
             }
 
             count = _greet.Counter();
-            return Page();
+            //return Page();
 
     }
 }

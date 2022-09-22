@@ -71,9 +71,10 @@ public class GreetWithDB : IGreet
             {"English", "Hello"},
             {"Sepedi", "Dumela"},
             {"Isixhosa", "Molo"},
+            {"Afrikaans", "Hallo"}
         };
 
-        return $"{ greetPhrase[lang] }";
+        return $"{ greetPhrase[lang.Substring(0, 1).ToUpper() + lang.Substring(1).ToLower()] }";
     }
     public Dictionary<string, int> Greeted()
     {
