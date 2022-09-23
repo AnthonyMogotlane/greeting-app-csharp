@@ -17,6 +17,16 @@ body {
   margin-bottom: 60px;
 }
 
+.home,
+.greeted {
+  font-weight: 500;
+}
+
+.home:hover,
+.greeted:hover {
+  color: blue !important;
+}
+
 /* Index styling */
 .input-field {
   height: 50px;
@@ -33,11 +43,12 @@ body {
 }
 
 .holder-msg {
-  height: 55px;
+  height: 60px;
 }
 
 .card {
   background: #f5ebe0;
+  padding: 1em 2em;
 }
 
 .counter {
@@ -48,4 +59,11 @@ body {
   font-weight: 400;
   background: #222;
   color: #fff;
+}
+
+
+/* Greeted style */
+.greeted-title,
+.home-title {
+  font-style: italic;
 }

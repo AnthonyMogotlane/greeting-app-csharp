@@ -33,7 +33,6 @@ public class GreetedNamesModel : PageModel
    
     public void OnPost()
     {
-        msg = _greet.ClearName(person.FirstName);
         theGreeted = _greet.Greeted();
     }
     public void OnPostDelete(string name)
@@ -44,6 +43,16 @@ public class GreetedNamesModel : PageModel
 
         //Alert msg
         alertMsg = $"{name} has been deleted";
+    }
+
+    public void OnPostClear(string name)
+    {
+        _greet.Clear();
+
+        theGreeted = _greet.Greeted();
+
+        //Alert msg
+        alertMsg = "Table has been cleared";
     }
 }
 

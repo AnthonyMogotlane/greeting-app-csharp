@@ -15,7 +15,6 @@ public class GreetWithDB : IGreet
         var data = connection.Query<Table>(@"SELECT * FROM greeted");
         var temp = new List<string>();
 
-        //string firstName = greetCommand.Split(" ")[1];
         string firstName = greetCommand;
         firstName = firstName.Substring(0, 1).ToUpper() + firstName.Substring(1).ToLower();
 
@@ -50,22 +49,12 @@ public class GreetWithDB : IGreet
             );
         }
 
-        // Dictionary<string, string> langPhrase = new Dictionary<string, string>()
-        // {
-        //     {"english", "Hello"},
-        //     {"sepedi", "Dumela"},
-        //     {"isixhosa", "Molo"},
-        //     {"zulu", "Siyaubona"}
-
-        // };
-
-        //string greetPhrase = greetCommand.Split(" ").Length == 3 ? langPhrase[greetCommand.Split("  ")[2]] : "Hello";
-        //return $"{greetPhrase} {firstName}";
         return firstName;
     }
 
     public string GetLanguage(string lang)
     {
+        
         Dictionary<string, string> greetPhrase = new Dictionary<string, string>()
         {
             {"English", "Hello"},
@@ -74,7 +63,16 @@ public class GreetWithDB : IGreet
             {"Afrikaans", "Hallo"}
         };
 
-        return $"{ greetPhrase[lang.Substring(0, 1).ToUpper() + lang.Substring(1).ToLower()] }";
+        lang = lang.Substring(0, 1).ToUpper() + lang.Substring(1).ToLower();
+
+        if(greetPhrase.ContainsKey(lang))
+        {
+            return $"{ greetPhrase[lang] }";
+        }
+        else
+        {
+            return $"{ lang } is not recognized";
+        }
     }
     public Dictionary<string, int> Greeted()
     {
@@ -134,7 +132,14 @@ public class GreetWithDB : IGreet
         using NpgsqlConnection connection = new NpgsqlConnection(ConnectionString);
         connection.Open();
 
-        //string firstName = clearCommand.Split(" ")[1];
+        var data = connection.Query<Table>(@"SELECT * FROM greeted");
+        var temp = new List<string>();
+
+        foreach (var name in data)
+        {
+            temp.Add(name.Names);
+        }
+
         string firstName = clearCommand;
         firstName = firstName.Substring(0, 1).ToUpper() + firstName.Substring(1).ToLower();
 
@@ -147,6 +152,14 @@ public class GreetWithDB : IGreet
                 Names = firstName
             }
         );
-        return "'" + firstName + "' has been cleared from the table";
+
+        if(temp.Contains(firstName))
+        {
+            return $"'{ firstName }' has been cleared from the table";
+        }
+        else
+        {
+            return $"{ firstName } has not been greeted";
+        }
     }
 }

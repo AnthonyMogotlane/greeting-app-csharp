@@ -20,59 +20,47 @@ public class IndexModel : PageModel
 
     // Binding person property
     [BindProperty]
-    public Person person {get; set;}
+    public Person person { get; set; }
 
     // Language array
-    public string[] languages = new[] {"English", "Isixhosa", "Sepedi", "Afrikaans"};
+    public string[] languages = new[] { "English", "Isixhosa", "Sepedi", "Afrikaans" };
 
     // To hold a greeted name
-    public string greeting {get; set;}
+    public string greeting { get; set; }
     // msg property
-    public string msg {get; set;}
-    
+    public string msg { get; set; }
+
     // Count property
-    public int count {get; set;}
+    public int count { get; set; }
     [BindProperty]
     // Action property
-    public string action {get; set;}
-    
+    public string action { get; set; }
+
     public void OnGet()
     {
         count = _greet.Counter();
     }
 
     public void OnPost()
-    {   
-            if(action == "submit")
-            {
-                Console.WriteLine(person.FirstName);
-                if(ModelState.IsValid)
-                {
-                    // if(person.FirstName != null && person.Language != null)
-                    // {
-                        // Greeting msg
-                        greeting = $" { _greet.GetLanguage(person.Language) } { _greet.GreetUser(person.FirstName) }!";
-                        count = _greet.Counter();
-                        // Clear inputs field
-                        person.FirstName = string.Empty;
-                        person.Language = string.Empty;
-                        ModelState.Clear();
+    {
+        if (action == "submit")
+        {
 
-                        // Counter
-                        //return Page();
-                    //}
-                }
+            if (ModelState.IsValid)
+            {
+                // Greeting msg
+                greeting = $" {_greet.GetLanguage(person.Language)} {_greet.GreetUser(person.FirstName)}";
+                count = _greet.Counter();
+                // Clear inputs field
+                person.FirstName = string.Empty;
+                person.Language = string.Empty;
+                ModelState.Clear();
 
             }
-            else if(action == "clear")
-            {
-                _greet.Clear();
-                msg = "Data Cleared";
-                count = _greet.Counter();   
-            }
 
-            count = _greet.Counter();
-            //return Page();
+        }
+
+        count = _greet.Counter();
 
     }
 }

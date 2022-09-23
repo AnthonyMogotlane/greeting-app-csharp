@@ -4,11 +4,10 @@ namespace GreetingAppWithRazorPages.Data.Models;
 
 public class Person
 {
-    [Required]
-    [RegularExpression(@"^[a-zA-Z]+$", 
-         ErrorMessage = "Characters are not allowed.")]
+    [Required(ErrorMessage = "Enter a name!")]
+    [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Characters entered are not allowed.")]
     public string? FirstName {get; set;}
     public int Number {get; set;}
-    [Required]
+    [Required(ErrorMessage = "Select a language")]
     public string? Language {get; set;}
 }
