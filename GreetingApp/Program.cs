@@ -6,11 +6,11 @@ using Npgsql;
 Console.WriteLine("Welcome to Greeting App\nType 'help' for information on how to use the app.");
 
 // Connection string
-string cs = "Server=heffalump.db.elephantsql.com;Port=5432;Database=xbixatua;UserId=xbixatua;Password=MZpFuYnavsnJw65QqMIG9JtHM29yqMz6";
+//string cs = "Server=heffalump.db.elephantsql.com;Port=5432;Database=xbixatua;UserId=xbixatua;Password=MZpFuYnavsnJw65QqMIG9JtHM29yqMz6";
 
 // Instance of Greet
 // IGreet greet = new Greet();
-IGreet greet = new GreetWithDB(cs);
+IGreet greet = new GreetWithMangoDB("mongodb://0.0.0.0:27017");
 
 bool runApp = true;
 
@@ -38,11 +38,6 @@ while(runApp == true)
             Console.WriteLine($" {item}");
         }
     }
-    else if(command.StartsWith("greet") && splitedCommand.Length >= 2)
-    {
-        string temp = splitedCommand.Length == 3 ? splitedCommand[2] : "English";
-        Console.WriteLine("> " + greet.GetLanguage(temp) + " " + greet.GreetUser(splitedCommand[1]));
-    }
     else if(command == "greeted")
     {
         if(greet.Greeted().Count() != 0)
@@ -60,7 +55,12 @@ while(runApp == true)
     }
     else if(splitedCommand[0] == "greeted" && splitedCommand.Length == 2)
     {
-        Console.WriteLine("> " + greet.GreetedTimes(command));
+        Console.WriteLine("> " + greet.GreetedTimes(splitedCommand[1]));
+    }
+    else if(command.StartsWith("greet") && splitedCommand.Length >= 2)
+    {
+        string temp = splitedCommand.Length == 3 ? splitedCommand[2] : "English";
+        Console.WriteLine("> " + greet.GetLanguage(temp) + " " + greet.GreetUser(splitedCommand[1]));
     }
     else if(command == "counter")
     {
