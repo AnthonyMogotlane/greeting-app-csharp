@@ -61,3 +61,15 @@
 /home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/bin/Debug/net6.0/runtimes/linux/native/libmongocrypt.so
 /home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/bin/Debug/net6.0/runtimes/osx/native/libmongocrypt.dylib
 /home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/bin/Debug/net6.0/runtimes/win/native/mongocrypt.dll
+/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/bin/Debug/net6.0/DnsClient.dll
+/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/bin/Debug/net6.0/Microsoft.Extensions.Logging.Abstractions.dll
+/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/bin/Debug/net6.0/MongoDB.Bson.dll
+/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/bin/Debug/net6.0/MongoDB.Driver.dll
+/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/bin/Debug/net6.0/MongoDB.Driver.Core.dll
+/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/bin/Debug/net6.0/MongoDB.Libmongocrypt.dll
+/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/bin/Debug/net6.0/SharpCompress.dll
+/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/bin/Debug/net6.0/Snappier.dll
+/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/bin/Debug/net6.0/ZstdSharp.dll
+/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/bin/Debug/net6.0/runtimes/linux/native/libmongocrypt.so
+/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/bin/Debug/net6.0/runtimes/osx/native/libmongocrypt.dylib
+/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/bin/Debug/net6.0/runtimes/win/native/mongocrypt.dll

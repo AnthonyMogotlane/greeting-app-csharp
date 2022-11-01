@@ -46,7 +46,24 @@ public class GreetWithMangoDB : IGreet
 
     public string GetLanguage(string lang)
     {
-        return "Hello";
+        Dictionary<string, string> greetPhrase = new Dictionary<string, string>()
+        {
+            {"English", "Hello"},
+            {"Sepedi", "Dumela"},
+            {"Isixhosa", "Molo"},
+            {"Afrikaans", "Hallo"}
+        };
+
+        lang = TitleCase(lang);
+
+        if(greetPhrase.ContainsKey(lang))
+        {
+            return $"{ greetPhrase[lang] }";
+        }
+        else
+        {
+            return $"{ lang } is not recognized";
+        }
     }
 
     public Dictionary<string, int> Greeted()
@@ -68,19 +85,6 @@ public class GreetWithMangoDB : IGreet
         var greetings = db.GetCollection<Person>("person");
 
         string msg = string.Empty;
-
-        // foreach (var item in Greeted())
-        // {
-        //     if (TitleCase(firstName) == item.Key)
-        //     {
-        //         msg = $"{firstName} has been greeted {item.Value} time/s";
-
-        //     }
-        //     else
-        //     {
-        //         msg = $"{TitleCase(firstName)} hasn't been greeted";
-        //     }
-        // }
 
         if (Greeted().ContainsKey(TitleCase(firstName)))
         {
@@ -115,6 +119,6 @@ public class GreetWithMangoDB : IGreet
 
         greetings.DeleteOne(x => x.FirstName == TitleCase(firstName));
 
-        return $"{firstName} has been cleared";
+        return $"{TitleCase(firstName)} has been cleared";
     }
 }

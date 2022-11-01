@@ -737,19 +737,19 @@
     ]
   },
   "packageFolders": {
-    "/home/codex/.nuget/packages/": {}
+    "/home/dev/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/GreetingApp.csproj",
+      "projectUniqueName": "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/GreetingApp.csproj",
       "projectName": "GreetingApp",
-      "projectPath": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/GreetingApp.csproj",
-      "packagesPath": "/home/codex/.nuget/packages/",
-      "outputPath": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/obj/",
+      "projectPath": "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/GreetingApp.csproj",
+      "packagesPath": "/home/dev/.nuget/packages/",
+      "outputPath": "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/codex/.nuget/NuGet/NuGet.Config"
+        "/home/dev/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
