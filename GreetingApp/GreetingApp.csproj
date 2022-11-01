@@ -11,6 +11,7 @@
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="npgsql" Version="6.0.6" />
     <PackageReference Include="MongoDB.Driver" Version="2.18.0" />
+    <PackageReference Include="stackexchange.redis" Version="2.6.70" />
   </ItemGroup>
 
 

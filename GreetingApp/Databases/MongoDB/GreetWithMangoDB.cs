@@ -2,7 +2,7 @@ using GreetingApp.Models;
 using MongoDB.Driver;
 using MongoDB.Bson;
 
-namespace GreetingApp;
+namespace GreetingApp.Databases.MongoDB;
 
 public class GreetWithMangoDB : IGreet
 {

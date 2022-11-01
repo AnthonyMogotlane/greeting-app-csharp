@@ -1,6 +1,9 @@
 ﻿using GreetingApp;
 using Dapper;
 using Npgsql;
+using GreetingApp.Databases.MongoDB;
+using GreetingApp.Databases.Redis;
+
 
 // Greeting App
 Console.WriteLine("Welcome to Greeting App\nType 'help' for information on how to use the app.");
@@ -10,7 +13,7 @@ Console.WriteLine("Welcome to Greeting App\nType 'help' for information on how t
 
 // Instance of Greet
 // IGreet greet = new Greet();
-IGreet greet = new GreetWithMangoDB("mongodb://0.0.0.0:27017");
+IGreet greet = new GreetWithRedis();
 
 bool runApp = true;
 

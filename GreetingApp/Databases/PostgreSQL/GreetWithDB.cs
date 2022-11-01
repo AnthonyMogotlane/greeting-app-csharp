@@ -1,7 +1,8 @@
 using Dapper;
 using Npgsql;
-namespace GreetingApp;
 
+
+namespace GreetingApp.Databases.PostgreSQL;
 public class GreetWithDB : IGreet
 {
     string ConnectionString { get; set; }
