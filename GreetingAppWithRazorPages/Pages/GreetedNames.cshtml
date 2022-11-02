@@ -8,8 +8,18 @@
     <div class="col-md-6">
         <h1 class="display-4 text-center greeted-title">Greeted Names</h1>
         <div>
-            <p class="text-danger">@Model.alertMsg</p>
+            <p class="text-danger alert-msg">@Model.alertMsg</p>
         </div>
+
+        @section Scripts
+        {
+            <script>
+                setTimeout(() => {
+                    document.querySelector(".alert-msg").innerHTML = "";
+                }, 3000)
+            </script>
+        }
+
         <table class="table border rounded" style="background: #f5ebe0">
             <thead>
                 <tr>

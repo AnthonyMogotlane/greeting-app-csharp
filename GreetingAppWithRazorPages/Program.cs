@@ -1,6 +1,7 @@
 using GreetingApp;
-using GreetingApp.Databases.PostgreSQL;
-
+// using GreetingApp.Databases.PostgreSQL;
+// using GreetingApp.Databases.MongoDB;
+using GreetingApp.Databases.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,8 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 // builder.Services.AddSingleton<IGreet, Greet>();
-builder.Services.AddSingleton<IGreet, GreetWithDB>( x => 
-    new GreetWithDB(builder.Configuration.GetConnectionString("cs"))
+builder.Services.AddSingleton<IGreet, GreetWithRedis>( x => 
+    new GreetWithRedis(builder.Configuration.GetConnectionString("localhost"))
 );
 
 

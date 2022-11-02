@@ -42,6 +42,14 @@
               "target": "Package",
               "version": "[2.0.123, )"
             },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.18.0, )"
@@ -49,6 +57,10 @@
             "npgsql": {
               "target": "Package",
               "version": "[6.0.6, )"
+            },
+            "stackexchange.redis": {
+              "target": "Package",
+              "version": "[2.6.70, )"
             }
           },
           "imports": [
