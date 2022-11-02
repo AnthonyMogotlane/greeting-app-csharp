@@ -6,28 +6,18 @@ namespace GreetingApp.Databases.MongoDB;
 
 public class GreetWithMangoDB : IGreet
 {
-
-    public string? ConnectionString { get; set; }
-
+    private IMongoCollection<Person> greetings;
     public GreetWithMangoDB(string cs)
     {
-        ConnectionString = cs;
-    }
-
-    // Connection to database with connection string
-    public MongoClient GetMongoClient()
-    {
-        MongoClient client = new MongoClient(ConnectionString);
-        return client;
+        MongoClient client = new MongoClient(cs);
+        var db = client.GetDatabase("greetings");
+        greetings = db.GetCollection<Person>("person");
     }
 
     public string TitleCase(string str) => str.Substring(0, 1).ToUpper() + str.Substring(1).ToLower();
 
     public string GreetUser(string firstName)
     {
-        var db = GetMongoClient().GetDatabase("greetings");
-        var greetings = db.GetCollection<Person>("person");
-
         var docCount = greetings.Find(prop => prop.FirstName == TitleCase(firstName)).CountDocuments();
 
         if (docCount >= 1)
@@ -68,9 +58,6 @@ public class GreetWithMangoDB : IGreet
 
     public Dictionary<string, int> Greeted()
     {
-        var db = GetMongoClient().GetDatabase("greetings");
-        var greetings = db.GetCollection<Person>("person");
-
         var records = greetings.Find(new BsonDocument()).ToList();
         var data = new Dictionary<string, int>();
 
@@ -79,11 +66,9 @@ public class GreetWithMangoDB : IGreet
 
         return data;
     }
+
     public string GreetedTimes(string firstName)
     {
-        var db = GetMongoClient().GetDatabase("greetings");
-        var greetings = db.GetCollection<Person>("person");
-
         string msg = string.Empty;
 
         if (Greeted().ContainsKey(TitleCase(firstName)))
@@ -98,27 +83,16 @@ public class GreetWithMangoDB : IGreet
         return msg;
     }
 
-    public int Counter()
-    {
-        return Greeted().Count();
-    }
+    //Count names greeted
+    public int Counter() => Greeted().Count();
 
-    // Clear data table
-    public void Clear()
-    {
-        var db = GetMongoClient().GetDatabase("greetings");
-        var greetings = db.GetCollection<Person>("person");
+    // Clearing name in a table
+    public void Clear() => greetings.DeleteMany(new BsonDocument());
 
-        greetings.DeleteMany(new BsonDocument());
-    }
     public string ClearName(string firstName)
     {
-
-        var db = GetMongoClient().GetDatabase("greetings");
-        var greetings = db.GetCollection<Person>("person");
-
+        //Deleting mentioned name
         greetings.DeleteOne(x => x.FirstName == TitleCase(firstName));
-
         return $"{TitleCase(firstName)} has been cleared";
     }
 }

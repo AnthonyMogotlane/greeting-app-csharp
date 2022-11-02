@@ -1,4 +1,4 @@
-namespace GreetingApp;
+namespace GreetingApp.Models;
 
 public class Table
 {

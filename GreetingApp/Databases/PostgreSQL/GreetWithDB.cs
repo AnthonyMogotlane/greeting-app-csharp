@@ -1,5 +1,6 @@
 using Dapper;
 using Npgsql;
+using GreetingApp.Models;
 
 
 namespace GreetingApp.Databases.PostgreSQL;

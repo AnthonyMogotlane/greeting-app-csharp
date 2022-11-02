@@ -1,39 +1,44 @@
-﻿using GreetingApp;
-using Dapper;
-using Npgsql;
-using GreetingApp.Databases.MongoDB;
+﻿using Microsoft.Extensions.Configuration;
+using GreetingApp;
+// using GreetingApp.Databases.PostgreSQL;
+// using GreetingApp.Databases.MongoDB;
 using GreetingApp.Databases.Redis;
 
+
+//Getting the conneciton string from appsetting.json
+var builder = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+IConfiguration _configuration = builder.Build();
+
+var cs = _configuration.GetConnectionString("Localhost");
 
 // Greeting App
 Console.WriteLine("Welcome to Greeting App\nType 'help' for information on how to use the app.");
 
-// Connection string
-//string cs = "Server=heffalump.db.elephantsql.com;Port=5432;Database=xbixatua;UserId=xbixatua;Password=MZpFuYnavsnJw65QqMIG9JtHM29yqMz6";
-
 // Instance of Greet
-// IGreet greet = new Greet();
-IGreet greet = new GreetWithRedis();
+IGreet greet = new GreetWithRedis(cs);
 
 bool runApp = true;
 
-while(runApp == true)
+while (runApp == true)
 {
-    Console.ResetColor();  
+    Console.ResetColor();
     // Prompt user to "Enter a command"
     Console.Write("Enter a command > ");
 
     // User input command
-    string? command = Console.ReadLine().Trim().ToLower();
-    string[] splitedCommand = command.Split(" ");
+    string? command = Console.ReadLine()!.Trim().ToLower();
+    string[] splittedCommand = command.Split(" ");
     Console.ForegroundColor = ConsoleColor.Green;
 
-    if(command == "exit")
-    {   
+    if (command == "exit")
+    {
         Console.WriteLine("Thank you for using the greeting app developed by @anthony.");
         runApp = false;
     }
-    else if(command == "help")
+    else if (command == "help")
     {
         Console.WriteLine("Greeting app commands:");
         foreach (var item in Commands.Help())
@@ -41,14 +46,14 @@ while(runApp == true)
             Console.WriteLine($" {item}");
         }
     }
-    else if(command == "greeted")
+    else if (command == "greeted")
     {
-        if(greet.Greeted().Count() != 0)
+        if (greet.Greeted().Count() != 0)
         {
             Console.WriteLine(">");
             foreach (var nameCount in greet.Greeted())
             {
-                Console.WriteLine($" {nameCount.Key}: {nameCount.Value}");  
+                Console.WriteLine($" {nameCount.Key}: {nameCount.Value}");
             }
         }
         else
@@ -56,27 +61,27 @@ while(runApp == true)
             Console.WriteLine("No user has been greeted, list is empty.");
         }
     }
-    else if(splitedCommand[0] == "greeted" && splitedCommand.Length == 2)
+    else if (splittedCommand[0] == "greeted" && splittedCommand.Length == 2)
     {
-        Console.WriteLine("> " + greet.GreetedTimes(splitedCommand[1]));
+        Console.WriteLine("> " + greet.GreetedTimes(splittedCommand[1]));
     }
-    else if(command.StartsWith("greet") && splitedCommand.Length >= 2)
+    else if (command.StartsWith("greet") && splittedCommand.Length >= 2)
     {
-        string temp = splitedCommand.Length == 3 ? splitedCommand[2] : "English";
-        Console.WriteLine("> " + greet.GetLanguage(temp) + " " + greet.GreetUser(splitedCommand[1]));
+        string temp = splittedCommand.Length == 3 ? splittedCommand[2] : "English";
+        Console.WriteLine("> " + greet.GetLanguage(temp) + " " + greet.GreetUser(splittedCommand[1]));
     }
-    else if(command == "counter")
+    else if (command == "counter")
     {
         Console.WriteLine($"> {greet.Counter()} user/s have been greeted.");
     }
-    else if(command == "clear")
+    else if (command == "clear")
     {
         greet.Clear();
         Console.WriteLine("> The names has been cleared from the list.");
     }
-    else if(splitedCommand[0] == "clear" && splitedCommand.Length == 2)
+    else if (splittedCommand[0] == "clear" && splittedCommand.Length == 2)
     {
-        Console.WriteLine("> " + greet.ClearName(splitedCommand[1])); 
+        Console.WriteLine("> " + greet.ClearName(splittedCommand[1]));
     }
     else
     {

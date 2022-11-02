@@ -6,15 +6,14 @@ public class GreetWithRedis : IGreet
 {
     private IDatabase db;
 
-    public GreetWithRedis()
+    public GreetWithRedis(string cs)
     {
-        ConnectionMultiplexer redis = ConnectionMultiplexer.Connect("localhost");
+        ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(cs);
         db = redis.GetDatabase();
     }
 
     public string TitleCase(string str) => str.Substring(0, 1).ToUpper() + str.Substring(1).ToLower();
     
-
     public string GreetUser(string firstName)
     {
         firstName = TitleCase(firstName);
@@ -31,6 +30,7 @@ public class GreetWithRedis : IGreet
 
         return $"{firstName}";
     }
+
     public string GetLanguage(string lang)
     {
         Dictionary<string, string> greetPhrase = new Dictionary<string, string>()
@@ -52,6 +52,7 @@ public class GreetWithRedis : IGreet
             return $"{ lang } is not recognized";
         }
     }
+
     public Dictionary<string, int> Greeted()
     {
         var greetedNames = new Dictionary<string, int>();
@@ -61,6 +62,7 @@ public class GreetWithRedis : IGreet
 
         return greetedNames;
     }
+    
     public string GreetedTimes(string firstName)
     {
         firstName = TitleCase(firstName);
