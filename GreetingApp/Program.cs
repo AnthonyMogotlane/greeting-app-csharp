@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using GreetingApp;
-// using GreetingApp.Databases.PostgreSQL;
-// using GreetingApp.Databases.MongoDB;
-using GreetingApp.Databases.Redis;
+using GreetingApp.Databases.PostgreSQL;
 
 
 //Getting the conneciton string from appsetting.json
@@ -10,15 +8,15 @@ var builder = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
-IConfiguration _configuration = builder.Build();
+IConfiguration configuration = builder.Build();
 
-var cs = _configuration.GetConnectionString("Localhost");
+var cs = configuration.GetConnectionString("ConnString");
 
 // Greeting App
 Console.WriteLine("Welcome to Greeting App\nType 'help' for information on how to use the app.");
 
 // Instance of Greet
-IGreet greet = new GreetWithRedis(cs);
+IGreet greet = new GreetWithDB(cs);
 
 bool runApp = true;
 

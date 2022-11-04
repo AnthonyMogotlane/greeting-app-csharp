@@ -96,7 +96,7 @@ public class GreetWithDB : IGreet
         using NpgsqlConnection connection = new NpgsqlConnection(ConnectionString);
         connection.Open();
 
-        string firstName = greetCommand.Split(" ")[1];
+        string firstName = greetCommand;
         firstName = firstName.Substring(0, 1).ToUpper() + firstName.Substring(1).ToLower();
 
         var namesGreeted = new Dictionary<string, int>();

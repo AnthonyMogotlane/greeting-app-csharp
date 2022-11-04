@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j2FFZKgVRAnSsB1uVJuuK9lQ6wdiyAjFS5KFJ+j9eUGuO5vzMeVdutAV7MVal3TUdnF94HNQ6ejNc1lEQxXWuQ==",
+  "dgSpecHash": "m2Dc55TBxXM4qTg8g+lC/no0U6Xxc0iHh58HB6teQG9p0vYLPwMvgI43kZbVDsE2KqnFobEH4vEVVR1q9Wjqog==",
   "success": true,
-  "projectFilePath": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/GreetingApp.csproj",
+  "projectFilePath": "/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingApp/GreetingApp.csproj",
   "expectedPackageFiles": [
     "/home/codex/.nuget/packages/dapper/2.0.123/dapper.2.0.123.nupkg.sha512",
     "/home/codex/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingAppWithRazorPages/GreetingAppWithRazorPages.csproj": {}
+    "/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingAppWithRazorPages/GreetingAppWithRazorPages.csproj": {}
   },
   "projects": {
-    "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/GreetingApp.csproj": {
+    "/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingApp/GreetingApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/GreetingApp.csproj",
+        "projectUniqueName": "/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingApp/GreetingApp.csproj",
         "projectName": "GreetingApp",
-        "projectPath": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/GreetingApp.csproj",
+        "projectPath": "/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingApp/GreetingApp.csproj",
         "packagesPath": "/home/codex/.nuget/packages/",
-        "outputPath": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/obj/",
+        "outputPath": "/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/codex/.nuget/NuGet/NuGet.Config"
@@ -83,14 +83,14 @@
         }
       }
     },
-    "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingAppWithRazorPages/GreetingAppWithRazorPages.csproj": {
+    "/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingAppWithRazorPages/GreetingAppWithRazorPages.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingAppWithRazorPages/GreetingAppWithRazorPages.csproj",
+        "projectUniqueName": "/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingAppWithRazorPages/GreetingAppWithRazorPages.csproj",
         "projectName": "GreetingAppWithRazorPages",
-        "projectPath": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingAppWithRazorPages/GreetingAppWithRazorPages.csproj",
+        "projectPath": "/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingAppWithRazorPages/GreetingAppWithRazorPages.csproj",
         "packagesPath": "/home/codex/.nuget/packages/",
-        "outputPath": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingAppWithRazorPages/obj/",
+        "outputPath": "/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingAppWithRazorPages/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/codex/.nuget/NuGet/NuGet.Config"
@@ -105,8 +105,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/GreetingApp.csproj": {
-                "projectPath": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/GreetingApp.csproj"
+              "/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingApp/GreetingApp.csproj": {
+                "projectPath": "/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingApp/GreetingApp.csproj"
               }
             }
           }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/GreetingApp.csproj": {}
+    "/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingApp/GreetingApp.csproj": {}
   },
   "projects": {
-    "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/GreetingApp.csproj": {
+    "/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingApp/GreetingApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/GreetingApp.csproj",
+        "projectUniqueName": "/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingApp/GreetingApp.csproj",
         "projectName": "GreetingApp",
-        "projectPath": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/GreetingApp.csproj",
+        "projectPath": "/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingApp/GreetingApp.csproj",
         "packagesPath": "/home/codex/.nuget/packages/",
-        "outputPath": "/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingApp/obj/",
+        "outputPath": "/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/codex/.nuget/NuGet/NuGet.Config"

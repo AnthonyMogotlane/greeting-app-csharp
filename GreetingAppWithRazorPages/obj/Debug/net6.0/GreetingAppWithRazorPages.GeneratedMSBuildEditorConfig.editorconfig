@@ -8,37 +8,37 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GreetingAppWithRazorPages
 build_property.RootNamespace = GreetingAppWithRazorPages
-build_property.ProjectDir = /home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingAppWithRazorPages/
+build_property.ProjectDir = /home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingAppWithRazorPages/
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingAppWithRazorPages
+build_property.MSBuildProjectDirectory = /home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingAppWithRazorPages
 build_property._RazorSourceGeneratorDebug = 
 
-[/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingAppWithRazorPages/Pages/Error.cshtml]
+[/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingAppWithRazorPages/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingAppWithRazorPages/Pages/GreetedNames.cshtml]
+[/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingAppWithRazorPages/Pages/GreetedNames.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvR3JlZXRlZE5hbWVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingAppWithRazorPages/Pages/Index.cshtml]
+[/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingAppWithRazorPages/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingAppWithRazorPages/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingAppWithRazorPages/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingAppWithRazorPages/Pages/_ViewImports.cshtml]
+[/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingAppWithRazorPages/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingAppWithRazorPages/Pages/_ViewStart.cshtml]
+[/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingAppWithRazorPages/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/codex/Desktop/decesion-inc/projects/greetings-app/GreetingAppWithRazorPages/Pages/Shared/_Layout.cshtml]
+[/home/codex/Desktop/decesion-inc/projects/GreetingAppWithPostgreSQL/GreetingAppWithRazorPages/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-54nyvc8sf3
