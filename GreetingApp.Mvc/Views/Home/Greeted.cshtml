@@ -1,0 +1,34 @@
+﻿@model Dictionary<string, int>
+
+@{
+    ViewData["Title"] = "Greeted Names";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h1>@ViewData["Title"]</h1> 
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var greetedName in Model)
+                {
+                    <tr>
+                        <td width="50%">@greetedName.Key</td>
+                        <td width="20%">@greetedName.Value</td>
+                        <td width="30%"><button class="bg-danger border-0 rounded text-white p-1 px-3">Delete</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
