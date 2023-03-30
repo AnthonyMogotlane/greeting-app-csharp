@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using GreetingApp.Mvc.Models;
 using GreetingApp.Models;
+using GreetingApp.ViewModel;
 
 namespace GreetingApp.Mvc.Controllers;
 public class HomeController : Controller
@@ -18,17 +19,33 @@ public class HomeController : Controller
     // Get
     public IActionResult Index()
     {
-        return View();
+        IndexViewModel indexViewModel = new IndexViewModel();
+        indexViewModel.Counter = _greet.Counter();
+
+        Console.WriteLine(indexViewModel.GreetingMsg);
+
+        return View(indexViewModel);
     }
 
     // Post
     [HttpPost]
-    public IActionResult Index(Table person)
+    public IActionResult Index(Table person, string lang)
     {
-        _greet.GreetUser(person.Names);
-        return View();
-    }
+        IndexViewModel indexViewModel = new IndexViewModel();
 
+        if(ModelState.IsValid)
+        {
+            _greet.GreetUser(person.Names);
+
+            indexViewModel.GreetingMsg = $"{_greet.GetLanguage(lang)} {person.Names}";
+            Console.WriteLine(indexViewModel.GreetingMsg);
+
+            TempData["GreetingMsg"] = "Hello Anthony";
+
+            return RedirectToAction("Index");
+        }
+        return View(indexViewModel);
+    }
 
     // Get
     public IActionResult Greeted()
