@@ -1,8 +1,11 @@
-﻿@model Table
+﻿@using GreetingApp.ViewModel;
+@model IndexViewModel;
 
 @{
     ViewData["Title"] = "Greetings";
 }
+
+<partial name="_GreetingModal" />
 
 <div class="row">
     <div class="col-12">
@@ -10,14 +13,33 @@
     </div>
     <div class="col-12">
         <form method="post">
-            <div>
-                <label asp-for="Names">Name</label>
-                <input asp-for="Names"/>
+            
+            <div class="input-name">
+                <span asp-validation-for="@Model.Person.Names" class="text-danger"></span>
+                <br />
+                <input asp-for="@Model.Person.Names" />
             </div>
-            <button type="submit" class="btn btn-success">Greet</button>
+
+            <div class="radio-btns">
+                @foreach (var lang in Model.languages)
+                {
+                    <label asp-for="@lang">@lang</label>
+                    <input type="radio" asp-for="@lang" value="@lang" />
+                }
+            </div>
+            <button type="submit" class="btn btn-success" >Greet</button>
         </form>
     </div>
+    <div class="">
+        <h1>@Model.GreetingMsg</h1>
+    </div>
     <div class="col-12">
-       <p>Counter</p>
+       <p>Counter @Model.Counter</p>
     </div>
 </div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
