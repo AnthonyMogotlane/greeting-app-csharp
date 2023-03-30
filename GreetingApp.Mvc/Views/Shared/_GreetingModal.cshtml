@@ -1,0 +1,12 @@
+
+@if(TempData["GreetingMsg"] != null)
+{
+    <!-- Modal -->
+    <div class="">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <h1 class="display-2 text-center greet-modal">@TempData["GreetingMsg"]</h1>
+        </div>
+      </div>
+    </div>
+}
