@@ -9,32 +9,33 @@
 
 <div class="row">
     <div class="col-12">
-        <h1>@ViewData["Title"]</h1>
+        <h1 class="text-center">@ViewData["Title"]</h1>
     </div>
-    <div class="col-12">
-        <form method="post">
+    <div class="col-12 d-flex flex-column align-items-center">
+
+        <form method="post" class="d-flex flex-column align-items-center">
             
             <div class="input-name">
-                <span asp-validation-for="@Model.Person.Names" class="text-danger"></span>
+                <span asp-validation-for="@Model.Person.Name" class="text-danger form-text"></span>
                 <br />
-                <input asp-for="@Model.Person.Names" />
+                <input asp-for="@Model.Person.Name" placeholder="Enter your name" class="ps-2 form-control" />
             </div>
 
-            <div class="radio-btns">
+            <div class="radio-btns d-flex justify-content-center my-4">
                 @foreach (var lang in Model.languages)
                 {
-                    <label asp-for="@lang">@lang</label>
-                    <input type="radio" asp-for="@lang" value="@lang" />
+                    <div class="mx-3">
+                        <label asp-for="@lang">@lang</label>
+                        <input type="radio" asp-for="@lang" value="@lang" />
+                    </div>
                 }
             </div>
-            <button type="submit" class="btn btn-success" >Greet</button>
+
+            <button type="submit" class="btn btn-success mb-3" >Greet</button>
         </form>
-    </div>
-    <div class="">
-        <h1>@Model.GreetingMsg</h1>
-    </div>
-    <div class="col-12">
-       <p>Counter @Model.Counter</p>
+        
+        <p>Counter @Model.Counter</p>
+        
     </div>
 </div>
 

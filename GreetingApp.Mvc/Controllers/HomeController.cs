@@ -22,25 +22,20 @@ public class HomeController : Controller
         IndexViewModel indexViewModel = new IndexViewModel();
         indexViewModel.Counter = _greet.Counter();
 
-        Console.WriteLine(indexViewModel.GreetingMsg);
-
         return View(indexViewModel);
     }
 
     // Post
     [HttpPost]
-    public IActionResult Index(Table person, string lang)
+    public IActionResult Index(Person person, string lang)
     {
         IndexViewModel indexViewModel = new IndexViewModel();
 
         if(ModelState.IsValid)
         {
-            _greet.GreetUser(person.Names);
+            _greet.GreetUser(person.Name); // Add name to DB
 
-            indexViewModel.GreetingMsg = $"{_greet.GetLanguage(lang)} {person.Names}";
-            Console.WriteLine(indexViewModel.GreetingMsg);
-
-            TempData["GreetingMsg"] = "Hello Anthony";
+            TempData["GreetingMsg"] = $"{_greet.GetLanguage(lang)}! {person.Name}";
 
             return RedirectToAction("Index");
         }
@@ -52,6 +47,22 @@ public class HomeController : Controller
     {
         Dictionary<string, int> greetedNames = _greet.Greeted();
         return View(greetedNames);
+    }
+
+    // Delete greeted name
+    [HttpPost]
+    public IActionResult Delete(string name)
+    {
+        _greet.ClearName(name);
+        return RedirectToAction("Greeted");
+    }
+
+    // Delete all greeted names
+    [HttpPost]
+    public IActionResult DeleteAll(string name)
+    {
+        _greet.Clear();
+        return RedirectToAction("Greeted");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp.Test/GreetingApp.Test.csproj": {}
+    "/home/codex/Desktop/decesion-inc/prac/GreetingAppWithPostgreSQL/GreetingApp.Test/GreetingApp.Test.csproj": {}
   },
   "projects": {
-    "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp.Test/GreetingApp.Test.csproj": {
+    "/home/codex/Desktop/decesion-inc/prac/GreetingAppWithPostgreSQL/GreetingApp.Test/GreetingApp.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp.Test/GreetingApp.Test.csproj",
+        "projectUniqueName": "/home/codex/Desktop/decesion-inc/prac/GreetingAppWithPostgreSQL/GreetingApp.Test/GreetingApp.Test.csproj",
         "projectName": "GreetingApp.Test",
-        "projectPath": "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp.Test/GreetingApp.Test.csproj",
-        "packagesPath": "/home/dev/.nuget/packages/",
-        "outputPath": "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp.Test/obj/",
+        "projectPath": "/home/codex/Desktop/decesion-inc/prac/GreetingAppWithPostgreSQL/GreetingApp.Test/GreetingApp.Test.csproj",
+        "packagesPath": "/home/codex/.nuget/packages/",
+        "outputPath": "/home/codex/Desktop/decesion-inc/prac/GreetingAppWithPostgreSQL/GreetingApp.Test/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/dev/.nuget/NuGet/NuGet.Config"
+          "/home/codex/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -26,8 +26,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/GreetingApp.csproj": {
-                "projectPath": "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/GreetingApp.csproj"
+              "/home/codex/Desktop/decesion-inc/prac/GreetingAppWithPostgreSQL/GreetingApp/GreetingApp.csproj": {
+                "projectPath": "/home/codex/Desktop/decesion-inc/prac/GreetingAppWithPostgreSQL/GreetingApp/GreetingApp.csproj"
               }
             }
           }
@@ -79,21 +79,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.402/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.407/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/GreetingApp.csproj": {
+    "/home/codex/Desktop/decesion-inc/prac/GreetingAppWithPostgreSQL/GreetingApp/GreetingApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/GreetingApp.csproj",
+        "projectUniqueName": "/home/codex/Desktop/decesion-inc/prac/GreetingAppWithPostgreSQL/GreetingApp/GreetingApp.csproj",
         "projectName": "GreetingApp",
-        "projectPath": "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/GreetingApp.csproj",
-        "packagesPath": "/home/dev/.nuget/packages/",
-        "outputPath": "/home/dev/Desktop/codex/decision-inc/greetings-app/GreetingApp/obj/",
+        "projectPath": "/home/codex/Desktop/decesion-inc/prac/GreetingAppWithPostgreSQL/GreetingApp/GreetingApp.csproj",
+        "packagesPath": "/home/codex/.nuget/packages/",
+        "outputPath": "/home/codex/Desktop/decesion-inc/prac/GreetingAppWithPostgreSQL/GreetingApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/dev/.nuget/NuGet/NuGet.Config"
+          "/home/codex/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -121,6 +121,14 @@
               "target": "Package",
               "version": "[2.0.123, )"
             },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.18.0, )"
@@ -128,6 +136,10 @@
             "npgsql": {
               "target": "Package",
               "version": "[6.0.6, )"
+            },
+            "stackexchange.redis": {
+              "target": "Package",
+              "version": "[2.6.70, )"
             }
           },
           "imports": [
@@ -146,7 +158,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.402/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.407/RuntimeIdentifierGraph.json"
         }
       }
     }

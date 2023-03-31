@@ -1,12 +1,40 @@
 
 @if(TempData["GreetingMsg"] != null)
 {
-    <!-- Modal -->
-    <div class="">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <h1 class="display-2 text-center greet-modal">@TempData["GreetingMsg"]</h1>
-        </div>
+   
+  <!-- Modal -->
+  <div class="modal fade" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content p-5">
+       <h1 class="text-center">@TempData["GreetingMsg"]</h1>
       </div>
     </div>
+  </div>  
+
+  <div class="modal-overlay"></div>
+
+  <script>
+    const body = document.querySelector("body");
+    body.classList.add("modal-open");
+    body.style.overflow = "hidden";
+    body.style.paddingRight = "0px";
+
+    const modalOverlay = document.querySelector(".modal-overlay");
+    modalOverlay.classList.add("modal-backdrop", "fade", "show");
+
+    const modal = document.querySelector(".modal");
+    modal.classList.add("show")
+    modal.style.display = "block";
+
+    setTimeout(() => {
+      body.classList.remove("modal-open");
+      body.style.overflow = "";
+      body.style.paddingRight = "";
+
+      modalOverlay.classList.remove("modal-backdrop", "fade", "show");
+
+      modal.classList.remove("show")
+      modal.style.display = "none";
+    }, 3000)
+  </script>
 }

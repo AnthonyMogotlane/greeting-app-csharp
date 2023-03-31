@@ -2,19 +2,18 @@ using Dapper;
 using Npgsql;
 using GreetingApp.Models;
 
-
-namespace GreetingApp.Databases.PostgreSQL;
-public class GreetWithDB : IGreet
+namespace GreetingApp.Data;
+public class GreetDb : IGreet
 {
     string ConnectionString { get; set; }
-    public GreetWithDB(string cs) => ConnectionString = cs;
+    public GreetDb(string cs) => ConnectionString = cs;
 
     public string GreetUser(string greetCommand)
     {
         using NpgsqlConnection connection = new NpgsqlConnection(ConnectionString);
         connection.Open();
 
-        var data = connection.Query<Table>(@"SELECT * FROM greeted");
+        var data = connection.Query<Person>(@"SELECT * FROM greeted");
         var temp = new List<string>();
 
         string firstName = greetCommand;
@@ -22,18 +21,18 @@ public class GreetWithDB : IGreet
 
         foreach (var name in data)
         {
-            temp.Add(name.Names);
+            temp.Add(name.Name);
         }
 
         if (!temp.Contains(firstName))
         {
             connection.Execute(@"
                 INSERT INTO greeted (names, number)
-                VALUES (@Names, @Number);",
-                new Table()
+                VALUES (@Names, @Count);",
+                new Person()
                 {
-                    Names = firstName,
-                    Number = 1
+                    Name = firstName,
+                    Count = 1
                 }
             );
         }
@@ -42,11 +41,11 @@ public class GreetWithDB : IGreet
             connection.Execute(@"
                 UPDATE greeted
                 SET number = number + 1
-                WHERE names = @Names;
+                WHERE names = @Name;
                 ",
-                new Table()
+                new Person()
                 {
-                    Names = firstName
+                    Name = firstName
                 }
             );
         }
@@ -83,10 +82,10 @@ public class GreetWithDB : IGreet
 
         var namesGreeted = new Dictionary<string, int>();
 
-        var data = connection.Query<Table>(@"SELECT * FROM greeted");
+        var data = connection.Query<Person>(@"SELECT * FROM greeted");
         foreach (var name in data)
         {
-            namesGreeted.Add(name.Names, name.Number);
+            namesGreeted.Add(name.Name, name.Count);
         }
 
         return namesGreeted;
@@ -101,10 +100,10 @@ public class GreetWithDB : IGreet
 
         var namesGreeted = new Dictionary<string, int>();
 
-        var data = connection.Query<Table>(@"SELECT * FROM greeted");
+        var data = connection.Query<Person>(@"SELECT * FROM greeted");
         foreach (var name in data)
         {
-            namesGreeted.Add(name.Names, name.Number);
+            namesGreeted.Add(name.Name, name.Count);
         }
 
         if(!namesGreeted.ContainsKey(firstName)) return $"{firstName} hasn't been stored";
@@ -116,7 +115,7 @@ public class GreetWithDB : IGreet
         using NpgsqlConnection connection = new NpgsqlConnection(ConnectionString);
         connection.Open();
 
-        var data = connection.Query<Table>(@"SELECT * FROM greeted");
+        var data = connection.Query<Person>(@"SELECT * FROM greeted");
 
         return data.Count();
     }
@@ -134,12 +133,12 @@ public class GreetWithDB : IGreet
         using NpgsqlConnection connection = new NpgsqlConnection(ConnectionString);
         connection.Open();
 
-        var data = connection.Query<Table>(@"SELECT * FROM greeted");
+        var data = connection.Query<Person>(@"SELECT * FROM greeted");
         var temp = new List<string>();
 
         foreach (var name in data)
         {
-            temp.Add(name.Names);
+            temp.Add(name.Name);
         }
 
         string firstName = clearCommand;
@@ -147,11 +146,11 @@ public class GreetWithDB : IGreet
 
         connection.Execute(@"
             DELETE FROM greeted
-            WHERE names = @Names;
+            WHERE names = @Name;
             ",
-            new Table
+            new Person
             {
-                Names = firstName
+                Name = firstName
             }
         );
 

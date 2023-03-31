@@ -1,14 +1,13 @@
 using GreetingApp;
-using GreetingApp.Databases.PostgreSQL;
+using GreetingApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<IGreet, GreetWithDB>( x => 
-    new GreetWithDB(builder.Configuration.GetConnectionString("ConnString"))
+builder.Services.AddSingleton<IGreet, GreetDb>( x => 
+    new GreetDb(builder.Configuration.GetConnectionString("ConnString"))
 );
-
 
 var app = builder.Build();
 
