@@ -1,25 +1,16 @@
 using GreetingApp;
-using GreetingApp.Databases.PostgreSQL;
-
+using GreetingApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// app.Environment.
-
-// app.Configuration
-
-// how to read db config from environment variable...
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 // builder.Services.AddSingleton<IGreet, Greet>();
-builder.Services.AddSingleton<IGreet, GreetWithDB>( x => 
-    new GreetWithDB(builder.Configuration.GetConnectionString("ConnString"))
+builder.Services.AddSingleton<IGreet, GreetDb>( x => 
+    new GreetDb(builder.Configuration.GetConnectionString("ConnString"))
 );
 
-
 var app = builder.Build();
-
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
