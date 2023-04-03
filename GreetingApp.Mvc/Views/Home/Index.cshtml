@@ -15,18 +15,20 @@
 
         <form method="post" class="d-flex flex-column align-items-center">
             
-            <div class="input-name">
+            <div class="input-name mb-4 w-100">
                 <span asp-validation-for="@Model.Person.Name" class="text-danger form-text"></span>
                 <br />
                 <input asp-for="@Model.Person.Name" placeholder="Enter your name" class="ps-2 form-control" />
             </div>
 
-            <div class="radio-btns d-flex justify-content-center my-4">
+            <div><span asp-validation-for="@Model.Person.Language" class="text-danger form-text"></span></div>
+            
+            <div class="radio-btns d-flex justify-content-center mb-4">
                 @foreach (var lang in Model.languages)
                 {
                     <div class="mx-3">
                         <label asp-for="@lang">@lang</label>
-                        <input type="radio" asp-for="@lang" value="@lang" />
+                        <input type="radio" asp-for="@Model.Person.Language" value="@lang" />
                     </div>
                 }
             </div>
@@ -34,7 +36,7 @@
             <button type="submit" class="btn btn-success mb-3" >Greet</button>
         </form>
         
-        <p>Counter @Model.Counter</p>
+        <p>Counter <span class="bg-dark p-1 pt-2 text-white rounded">@Model.Counter</span></p>
         
     </div>
 </div>

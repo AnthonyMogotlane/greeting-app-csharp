@@ -13,6 +13,7 @@
                 {
                     @* <div asp-validation-summary="All" class="text-danger"></div> *@
                     <div><span asp-validation-for="person.FirstName" class="text-danger"></span></div>
+                    <div><span asp-validation-for="person.Language" class="text-danger"></span></div>
                 }
                 <label asp-for="person.FirstName">Name:</label>
                 <input asp-for="person.FirstName" type="text" class="form-control input-field"
