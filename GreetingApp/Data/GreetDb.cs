@@ -27,8 +27,8 @@ public class GreetDb : IGreet
         if (!temp.Contains(firstName))
         {
             connection.Execute(@"
-                INSERT INTO greeted (names, number)
-                VALUES (@Names, @Count);",
+                INSERT INTO greeted (name, count)
+                VALUES (@Name, @Count);",
                 new Person()
                 {
                     Name = firstName,
@@ -40,8 +40,8 @@ public class GreetDb : IGreet
         {
             connection.Execute(@"
                 UPDATE greeted
-                SET number = number + 1
-                WHERE names = @Name;
+                SET count = count + 1
+                WHERE name = @Name;
                 ",
                 new Person()
                 {
@@ -82,10 +82,10 @@ public class GreetDb : IGreet
 
         var namesGreeted = new Dictionary<string, int>();
 
-        var data = connection.Query<Person>(@"SELECT * FROM greeted");
-        foreach (var name in data)
+        var greeted = connection.Query<Person>(@"SELECT * FROM greeted");
+        foreach (var person in greeted)
         {
-            namesGreeted.Add(name.Name, name.Count);
+            namesGreeted.Add(person.Name, person.Count);
         }
 
         return namesGreeted;
@@ -146,7 +146,7 @@ public class GreetDb : IGreet
 
         connection.Execute(@"
             DELETE FROM greeted
-            WHERE names = @Name;
+            WHERE name = @Name;
             ",
             new Person
             {
