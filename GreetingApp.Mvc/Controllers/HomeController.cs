@@ -27,19 +27,19 @@ public class HomeController : Controller
 
     // Post
     [HttpPost]
-    public IActionResult Index(Person person, string lang)
+    public IActionResult Index(Person person)
     {
         IndexViewModel indexViewModel = new IndexViewModel();
-
-        if(ModelState.IsValid)
+        
+        if(!ModelState.IsValid)
         {
-            _greet.GreetUser(person.Name); // Add name to DB
-
-            TempData["GreetingMsg"] = $"{_greet.GetLanguage(lang)}! {person.Name}";
-
-            return RedirectToAction("Index");
+            return View(indexViewModel);
         }
-        return View(indexViewModel);
+
+        _greet.GreetUser(person.Name); // Add name to DB
+        TempData["GreetingMsg"] = $"{_greet.GetLanguage(person.Language!)}! {person.Name}";
+        
+        return RedirectToAction("Index");
     }
 
     // Get
