@@ -1,5 +1,5 @@
 
-using GreetingApp.Models;
+using GreetingApp.Common.Models;
 
 namespace GreetingApp.ViewModel;
 public class IndexViewModel

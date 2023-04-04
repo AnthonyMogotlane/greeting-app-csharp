@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using GreetingApp.Mvc.Models;
-using GreetingApp.Models;
+using GreetingApp.Common.Models;
 using GreetingApp.ViewModel;
 
 namespace GreetingApp.Mvc.Controllers;
