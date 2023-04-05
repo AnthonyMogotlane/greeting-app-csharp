@@ -1,4 +1,7 @@
-# Greetings App with PostgreSQL
+# Greeting App
+
+[![.NET](https://github.com/AnthonyMogotlane/greeting-app-csharp/actions/workflows/unit-test.yml/badge.svg)](https://github.com/AnthonyMogotlane/greeting-app-csharp/actions/workflows/unit-test.yml)
+
 Deploying the dotnet core application to a Digital Ocean VPS.
 
 ## VPS deployment steps
