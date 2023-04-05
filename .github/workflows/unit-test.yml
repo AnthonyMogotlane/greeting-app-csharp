@@ -20,7 +20,7 @@ jobs:
     - name: Test
       run: dotnet test ./GreetingApp.Test/
     - name: Restore dependencies
-      run: dotnet restore ./src/Ferry
+      run: dotnet restore ./GreetingApp.Common
     - name: Build
       run: dotnet build --no-restore /p:ContinuousIntegrationBuild=true ./GreetingApp.Common
     - name: Test
