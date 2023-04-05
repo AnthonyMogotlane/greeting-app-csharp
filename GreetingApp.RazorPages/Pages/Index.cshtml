@@ -1,0 +1,65 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row d-flex flex-column justify-content-center align-items-center">
+    <div class="col-md-6 card mt-4">
+        <h1 class="display-3 text-center home-title">Greetings</h1>
+        <div class="form-container">
+            <form class="form-group" method="post">
+                @if (@Model.action == "submit")
+                {
+                    <div><span asp-validation-for="person.Name" class="text-danger"></span></div>
+                }
+                <label asp-for="person.Name">Name:</label>
+                <input asp-for="person.Name" type="text" class="form-control input-field"
+                    placeholder="Enter firstname you want to greet">
+
+                <div class="mt-4 text-center">
+                    @if (@Model.action == "submit")
+                    {
+                        <div><span asp-validation-for="person.Language" class="text-danger"></span></div>
+                    }
+                    @foreach (var language in @Model.languages)
+                    {
+                        <input type="radio" asp-for="person.Language" value="@language">
+                        <label class="mr-1 type-lang" asp-for="person.Language">@language</label>
+                    }
+                </div>
+
+                <div class="mt-4 text-center">
+                    <button asp-action="submit" type="submit" class="btn btn-success btn-greet"
+                        onclick="popGreetMsg()">Greet</button>
+                    
+                </div>
+            </form>
+        </div>
+
+        @if (@Model.action == "submit")
+        {
+            <div class="mt-4 greet-msg">
+                <h1 class="display-5 text-center border rounded holder-msg">@Model.greeting</h1>
+            </div>
+        }
+        else
+        {
+            <div class="mt-4 holder-msg">
+                <p class="display-5 text-center border rounded holder-msg"></p>
+            </div>
+        }
+
+        <div class="mt-4">
+            <p class="text-center">Counter: <span class="counter">@Model.count</span></p>
+        </div>
+
+        @section Scripts
+        {
+            <script>
+                const msg = document.querySelector(".holder-msg");
+                setTimeout(() => { msg.innerHTML = ""; }, 3000);
+            </script>
+        } 
+    </div>
+</div>
