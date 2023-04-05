@@ -1,11 +1,14 @@
+using Xunit;
+using GreetingApp.Common.Data;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+
 
 namespace GreetingApp.Test;
 
 public class GreetTest
 {
-    Greet greet = new Greet();
+    IGreet greet = new Greet();
 
     [Fact]
     public void ShouldReturnAMessageGreetingTheUserWithSepedi()

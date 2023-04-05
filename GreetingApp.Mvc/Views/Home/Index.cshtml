@@ -1,0 +1,48 @@
+﻿@using GreetingApp.ViewModel;
+@model IndexViewModel;
+
+@{
+    ViewData["Title"] = "Greetings";
+}
+
+<partial name="_GreetingModal" />
+
+<div class="row">
+    <div class="col-12">
+        <h1 class="text-center">@ViewData["Title"]</h1>
+    </div>
+    <div class="col-12 d-flex flex-column align-items-center">
+
+        <form method="post" class="d-flex flex-column align-items-center">
+            
+            <div class="input-name mb-4 w-100">
+                <span asp-validation-for="@Model.Person.Name" class="text-danger form-text"></span>
+                <br />
+                <input asp-for="@Model.Person.Name" placeholder="Enter your name" class="ps-2 form-control" />
+            </div>
+
+            <div><span asp-validation-for="@Model.Person.Language" class="text-danger form-text"></span></div>
+            
+            <div class="radio-btns d-flex justify-content-center mb-4">
+                @foreach (var lang in Model.languages)
+                {
+                    <div class="mx-3">
+                        <label asp-for="@lang">@lang</label>
+                        <input type="radio" asp-for="@Model.Person.Language" value="@lang" />
+                    </div>
+                }
+            </div>
+
+            <button type="submit" class="btn btn-success mb-3" >Greet</button>
+        </form>
+        
+        <p>Counter <span class="bg-dark p-1 pt-2 text-white rounded">@Model.Counter</span></p>
+        
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
