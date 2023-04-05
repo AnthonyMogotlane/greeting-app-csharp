@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using GreetingApp;
-using GreetingApp.Data;
+using GreetingApp.Common.Data;
 
 
 //Getting the conneciton string from appsetting.json
@@ -16,7 +16,7 @@ var cs = configuration.GetConnectionString("ConnString");
 Console.WriteLine("Welcome to Greeting App\nType 'help' for information on how to use the app.");
 
 // Instance of Greet
-IGreet greet = new GreetDb(cs);
+IGreet greet = new Greet();
 
 bool runApp = true;
 

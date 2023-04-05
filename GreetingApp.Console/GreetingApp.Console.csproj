@@ -6,7 +6,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GreetingApp\GreetingApp.csproj" />
+    <ProjectReference Include="..\GreetingApp.Common\GreetingApp.Common.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

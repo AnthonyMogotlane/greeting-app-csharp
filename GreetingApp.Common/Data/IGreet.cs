@@ -1,4 +1,4 @@
-namespace GreetingApp;
+namespace GreetingApp.Common.Data;
 
 public interface IGreet
 {
