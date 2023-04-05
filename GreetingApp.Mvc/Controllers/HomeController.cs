@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using GreetingApp.Mvc.Models;
+using GreetingApp.Common.Data;
 using GreetingApp.Common.Models;
 using GreetingApp.ViewModel;
 
