@@ -55,6 +55,7 @@ public class HomeController : Controller
     public IActionResult Delete(string name)
     {
         _greet.ClearName(name);
+        TempData["delete"] = $"{name} deleted successfully";
         return RedirectToAction("Greeted");
     }
 
@@ -63,6 +64,7 @@ public class HomeController : Controller
     public IActionResult DeleteAll(string name)
     {
         _greet.Clear();
+        TempData["deleteAll"] = "Names deleted successfully";
         return RedirectToAction("Greeted");
     }
 

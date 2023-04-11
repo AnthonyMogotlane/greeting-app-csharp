@@ -1,0 +1,19 @@
+@* Notify when a user is deleted *@
+@if (TempData["delete"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.success('@TempData["delete"]');
+    </script>
+}
+
+@* Notify when all users are deleted *@
+@if (TempData["deleteAll"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.success('@TempData["deleteAll"]');
+    </script>
+}
